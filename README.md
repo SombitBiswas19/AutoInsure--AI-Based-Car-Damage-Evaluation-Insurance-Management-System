@@ -1,4 +1,4 @@
-# AutoInsure--AI-Based-Car-Damage-Evaluation-Insurance-Management-System
+# Car-Insuremart
 🚗 InsureMart: Car Insurance Marketplace
 
 InsureMart is a comprehensive web platform where car insurance providers can share their insurance plans, and buyers can explore and select the best options tailored to their needs. The platform features a machine learning-based recommendation model that suggests the most suitable policies based on user demographics (age, income, etc.) and a CNN-based car damage evaluation system to estimate repair costs from uploaded car images.
