@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Damage Detection</title>
+</head>
+<body>
+  <h1>Upload a Car Image for Damage Detection</h1>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*" required>
+    <button type="submit">Upload</button>
+  </form>
+  <pre id="result"></pre>
+
+  <script>
+    document.getElementById('uploadForm').onsubmit = async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+      document.getElementById('result').innerText = JSON.stringify(result, null, 2);
+    };
+  </script>
+</body>
+</html>

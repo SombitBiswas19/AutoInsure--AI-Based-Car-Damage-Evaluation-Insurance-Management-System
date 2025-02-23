@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="payment_style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Payment Gateway</h1>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="premiumAmount">Premium Amount ($):</label>
+                <input type="number" id="premiumAmount" required>
+            </div>
+            <div class="form-group">
+                <label for="finalAmount">Final Payable Amount ($):</label>
+                <input type="text" id="finalAmount" readonly>
+            </div>
+            <div class="form-group">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">Expiry Date (MM/YY):</label>
+                <input type="text" id="expiryDate" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" required>
+            </div>
+            <button type="button" id="submitBtn">Submit Payment</button>
+        </form>
+    </div>
+
+    <script>
+        const user = localStorage.getItem('user');
+        console.log(user);
+        if(user){
+            document.addEventListener('readystatechange', function() {
+            document.getElementById('premiumAmount').value=parseFloat(JSON.parse(user).Premium);
+            document.getElementById('premiumAmount').innerText=parseFloat(JSON.parse(user).Premium);
+            document.getElementById('premiumAmount').readOnly=true;
+            const premiumAmount = parseFloat(JSON.parse(user).Premium);
+            const taxRate = 0.18; // 18% tax
+            const finalAmount = premiumAmount + (premiumAmount * taxRate);
+            document.getElementById('finalAmount').value = finalAmount.toFixed(2);
+            document.getElementById('finalAmount').readOnly=true;
+
+        });
+
+        document.getElementById('submitBtn').addEventListener('click', async()=> {
+            const User=JSON.parse(user);
+            const premiumAmount = document.getElementById('premiumAmount').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+            
+            const buyer_data={
+                eId:User.email,
+                Company_Name:User.Company,
+                Policy_Type:User.Type,
+                Policy_Tier:User.Tier,
+                Max_Vehicle_Age:User.Age,
+                No_of_Years_Covered:User.Years,
+                Deductible:User.Deductible,
+                Idv_Factor:User.Idv,
+                Premium_Price:User.Premium
+            }
+            const response = await fetch('http://localhost:5000/buyer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(buyer_data)
+            
+        });
+        const data = await response.json();
+        alert(data.message);
+    
+        if (response.ok) {
+            window.location.href="profile.html";
+            alert("Purchase Confirmed");
+        }
+
+
+
+});}else{
+    alert("error");
+}
+    </script>
+</body>
+</html>

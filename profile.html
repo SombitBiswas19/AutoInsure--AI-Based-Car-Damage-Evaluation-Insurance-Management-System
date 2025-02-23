@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="wrapper">
+          <!-- <div class="logo"><img href="#" src="images/logo3.png" alt="logo"><a href="#">INSUREMART</a></div> -->
+          <div class="logo"><a href="#">INSUREMART</a></div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="signup.html" id="sign_in_btn">Sign in</a></li>
+            <li><a href="#" class="desktop-item">Account</a>
+              <input type="checkbox" id="acc">
+              <label for="acc" class="mobile-item">Account</label>
+              <ul class="drop-menu">
+                <li><a href="profile.html">My Account</a></li>
+                <li><a href="signup.html" id="log_out_btn">Log Out</a></li>
+              </ul></li>
+              
+          </ul>
+          
+        </div>
+      </nav>
+
+
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-4" id="profile-box">
+                <!-- Profile picture card-->
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header">Profile Picture</div>
+                    <div class="card-body text-center">
+                        <!-- Profile picture image-->
+                        <img class="img-account-profile rounded-circle mb-2" id="profilePic" src="" alt="Profile Picture">
+                        <!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                        <form id="pic-form">
+                        <label for="eId">Email ID:</label>
+                        <input type="text" name="eId" id="eId">
+                        <label for="profilePicture">Upload picture:</label>
+                        <input type="file" name="profilePicture" accept="image/*" id="profilePicture">
+                        <button class="btn btn-primary" type="submit">Upload new image</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="userDetails">
+            <div class="col-xl-8" id="profile-details">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">Account Details</div>
+                    <div class="card-body">
+                        <div class="row gx-3 mb-3" id="box2">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <strong>Name</strong>
+                                <div id="userName"></div>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <strong>Email</strong>
+                                <div id="userEmail"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Mobile</strong>
+                                <div id="userMobile"></div>
+                            </div>
+                            
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">Policy Details</div>
+                    <div class="card-body">
+                        <div class="row gx-3 mb-3" id="box3">
+                            
+                            <div class="col-md-6">
+                                <strong>Company Name</strong>
+                                <div id="companyName"></div>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <strong>Policy Type</strong>
+                                <div id="policyType"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Premium price</strong>
+                                <div id="premiumPrice"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Premium Starting Date</strong>
+                                <div id="starting"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Premium Valid Till</strong>
+                                <div id="validity"></div>
+                            </div>
+                            
+
+                        </div>
+
+
+                    </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">Track Claim</div>
+                    <div class="card-body">
+                        <div class="row gx-3 mb-3" id="box4">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <strong>Status of Claim:</strong>
+                                <div id="statusCode"></div>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <strong>Bill amount requested:</strong>
+                                <div id="billAmount"></div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <strong>Amount Paid:</strong>
+                                <div id="amountPaid">0</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+            <footer class="footer">
+                <div class="waves">
+                  <div class="wave" id="wave1"></div>
+                  <div class="wave" id="wave2"></div>
+                  <div class="wave" id="wave3"></div>
+                  <div class="wave" id="wave4"></div>
+                </div>
+                <ul class="social-icon">
+                  <li class="social-icon__item"><a class="social-icon__link" href="#">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </a></li>
+                  <li class="social-icon__item"><a class="social-icon__link" href="#">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </a></li>
+                  <li class="social-icon__item"><a class="social-icon__link" href="#">
+                      <ion-icon name="logo-linkedin"></ion-icon>
+                    </a></li>
+                  <li class="social-icon__item"><a class="social-icon__link" href="#">
+                      <ion-icon name="logo-instagram"></ion-icon>
+                    </a></li>
+                </ul>
+                <ul class="menu">
+                  <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+                  <li class="menu__item"><a class="menu__link" href="about.html">About</a></li>
+                  <li class="menu__item"><a class="menu__link" href="view_policies.html">Policies</a></li>
+            
+                </ul>
+                <p>&copy;2024 INSUREMART | All Rights Reserved</p>
+              </footer>
+            
+    <script src="profile.js"></script>
+</body>
+
+</html>
